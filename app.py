@@ -11,10 +11,14 @@ divratemonthlycache = {}
 
 @app.route('/')
 def hello_world():
-    tsla = yf.Ticker("PSEC")
-    print(tsla.info)
+    tsla = yf.Ticker("VTI")
+    #print(tsla.info)
     print(str(tsla.info).split("dividendRate': ")[1].split(",")[0])
-    return "sup"
+
+    print(tsla.dividends)
+
+
+    return tsla.info
 
 
 
