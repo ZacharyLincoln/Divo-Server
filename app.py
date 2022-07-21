@@ -12,7 +12,6 @@ divratemonthlycache = {}
 @app.route('/')
 def hello_world():
     tsla = yf.Ticker("VTI")
-    #print(tsla.info)
     print(str(tsla.info).split("dividendRate': ")[1].split(",")[0])
 
     print(tsla.dividends)
@@ -75,13 +74,3 @@ def divRateMonthly():
         divratemonthlycache[symbol] = str(float(str(stock.info).split("dividendRate': ")[1].split(",")[0]) / 12.0)
         return str(float(str(stock.info).split("dividendRate': ")[1].split(",")[0]) / 12.0)
 
-
-
-@app.route('/current_price', methods=['GET'])
-def price():
-    symbol = request.args['stock']
-    stock = yf.Ticker(str(symbol))
-    dividends = Series.tolist(stock.dividends)
-
-
-    return str(dividends[len(dividends) - 1])
