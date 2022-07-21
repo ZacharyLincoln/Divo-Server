@@ -38,7 +38,7 @@
 * pandas
 
 ## Endpoints
-```http request
+```
 >    /current_div
 
 Returns the latest paid dividend from the stock provided.
